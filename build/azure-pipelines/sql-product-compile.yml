@@ -15,6 +15,7 @@ steps:
 
 - script: |
     set -e
+    export GIT_TERMINAL_PROMPT=1
     cat << EOF > ~/.netrc
     machine github.com
     login azuredatastudio
