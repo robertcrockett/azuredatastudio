@@ -15,7 +15,6 @@ steps:
 
 - script: |
     set -e
-    export GIT_TERMINAL_PROMPT=1
     cat << EOF > ~/.netrc
     machine github.com
     login azuredatastudio
@@ -28,6 +27,7 @@ steps:
 
 - script: |
     set -e
+    export GIT_TERMINAL_PROMPT=1
     git remote add distro "https://github.com/$(VSCODE_MIXIN_REPO).git"
     git fetch distro
     git merge $(node -p "require('./package.json').distro")
