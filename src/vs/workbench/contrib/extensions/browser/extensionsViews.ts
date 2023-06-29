@@ -748,10 +748,10 @@ export class ExtensionsListView extends ViewPane {
 		// {{SQL CARBON EDIT}} - End
 
 
-		if (this.isRecommendationsQuery(query)) {
-			return this.queryRecommendations(query, options, token);
-		} else if (ExtensionsListView.isAllMarketplaceExtensionsQuery(query.value)) { // {{SQL CARBON EDIT}} add if
+		if (ExtensionsListView.isAllMarketplaceExtensionsQuery(query.value)) { // {{SQL CARBON EDIT}} - check if all marketplace query
 			return this.getAllMarketplaceModel(query, options, token);
+		} else if (this.isRecommendationsQuery(query)) {
+			return this.queryRecommendations(query, options, token);
 		}
 
 		if (/\bcurated:([^\s]+)\b/.test(query.value)) {
