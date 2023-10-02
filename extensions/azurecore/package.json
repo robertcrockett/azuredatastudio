@@ -68,6 +68,16 @@
             "type": "boolean",
             "default": false,
             "description": "%config.enableChinaCloudDescription%"
+          },
+          "accounts.azure.cloud.enableUsSecCloud": {
+          "type": "boolean",
+          "default": false,
+          "description": "%config.enableUsSecCloudDescription%"
+          },
+          "accounts.azure.cloud.enableUsNatCloud": {
+          "type": "boolean",
+          "default": false,
+          "description": "%config.enableUsNatCloudDescription%"
           }
         }
       },

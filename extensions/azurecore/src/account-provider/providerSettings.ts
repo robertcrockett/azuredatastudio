@@ -218,6 +218,134 @@ const chinaAzureSettings: ProviderSettings = {
 	}
 };
 
-let allSettings = [publicAzureSettings, usGovAzureSettings, chinaAzureSettings];
+const usSecAzureSettings: ProviderSettings = {
+	configKey: 'enableUsSecCloud',
+	metadata: {
+		displayName: localize('UsSecCloudDisplayName', "UsSec"),
+		id: 'azure_UsSecCloud',
+		settings: {
+			host: 'https://login.microsoftonline.microsoft.scloud/',
+			clientId: 'a69788c6-1d43-44ed-9ca3-b83e194da255',
+			microsoftResource: {
+				id: SettingIds.marm,
+				endpoint: 'https://management.core.microsoft.scloud/',
+				azureResourceId: AzureResource.MicrosoftResourceManagement
+			},
+			msGraphResource: {
+				id: SettingIds.msgraph,
+				endpoint: 'https://graph.microsoft.scloud/',
+				azureResourceId: AzureResource.MsGraph
+			},
+			armResource: {
+				id: SettingIds.arm,
+				endpoint: 'https://management.azure.microsoft.scloud/',
+				azureResourceId: AzureResource.ResourceManagement
+			},
+			sqlResource: {
+				id: SettingIds.sql,
+				endpoint: 'https://database.cloudapi.microsoft.scloud/',
+				azureResourceId: AzureResource.Sql
+			},
+			azureKeyVaultResource: {
+				id: SettingIds.vault,
+				endpoint: 'https://vault.cloudapi.microsoft.scloud/',
+				azureResourceId: AzureResource.AzureKeyVault
+			},
+			azureLogAnalyticsResource: {
+				id: SettingIds.ala,
+				endpoint: 'https://api.loganalytics.azure.microsoft.scloud/',
+				azureResourceId: AzureResource.AzureLogAnalytics,
+			},
+			azureStorageResource: {
+				id: SettingIds.storage,
+				endpoint: '',
+				endpointSuffix: '.core.microsoft.scloud/',
+				azureResourceId: AzureResource.AzureStorage
+			},
+			azureKustoResource: {
+				id: SettingIds.kusto,
+				endpoint: 'https://kusto.core.microsoft.scloud/',
+				azureResourceId: AzureResource.AzureKusto,
+			},
+			powerBiResource: {
+				id: SettingIds.powerbi,
+				endpoint: 'https://app.powerbi.microsoft.scloud/',
+				azureResourceId: AzureResource.PowerBi
+			},
+			redirectUri: 'http://localhost',
+			scopes: [
+				'openid', 'email', 'profile', 'offline_access',
+				'https://management.azure.microsoft.scloud/user_impersonation'
+			],
+			portalEndpoint: 'https://portal.azure.microsoft.scloud/'
+		}
+	}
+};
+
+const usNatAzureSettings: ProviderSettings = {
+	configKey: 'enableUsNatCloud',
+	metadata: {
+		displayName: localize('UsNatCloudDisplayName', "UsNat"),
+		id: 'azure_UsNatCloud',
+		settings: {
+			host: 'https://login.microsoftonline.eaglex.ic.gov/',
+			clientId: 'a69788c6-1d43-44ed-9ca3-b83e194da255',
+			microsoftResource: {
+				id: SettingIds.marm,
+				endpoint: 'https://http://management.core.eaglex.ic.gov/',
+				azureResourceId: AzureResource.MicrosoftResourceManagement
+			},
+			msGraphResource: {
+				id: SettingIds.msgraph,
+				endpoint: 'https://graph.eaglex.ic.gov/',
+				azureResourceId: AzureResource.MsGraph
+			},
+			armResource: {
+				id: SettingIds.arm,
+				endpoint: 'https://management.azure.eaglex.ic.gov/',
+				azureResourceId: AzureResource.ResourceManagement
+			},
+			sqlResource: {
+				id: SettingIds.sql,
+				endpoint: 'https://database.cloudapi.eaglex.ic.gov/',
+				azureResourceId: AzureResource.Sql
+			},
+			azureKeyVaultResource: {
+				id: SettingIds.vault,
+				endpoint: 'https://vault.cloudapi.eaglex.ic.gov/',
+				azureResourceId: AzureResource.AzureKeyVault
+			},
+			azureLogAnalyticsResource: {
+				id: SettingIds.ala,
+				endpoint: 'https://api.loganalytics.azure.eaglex.ic.gov/',
+				azureResourceId: AzureResource.AzureLogAnalytics,
+			},
+			azureStorageResource: {
+				id: SettingIds.storage,
+				endpoint: '',
+				endpointSuffix: '.core.eaglex.ic.gov/',
+				azureResourceId: AzureResource.AzureStorage
+			},
+			azureKustoResource: {
+				id: SettingIds.kusto,
+				endpoint: 'https://kusto.core.eaglex.ic.gov/',
+				azureResourceId: AzureResource.AzureKusto,
+			},
+			powerBiResource: {
+				id: SettingIds.powerbi,
+				endpoint: 'https://app.powerbi.eaglex.ic.gov/',
+				azureResourceId: AzureResource.PowerBi
+			},
+			redirectUri: 'http://localhost',
+			scopes: [
+				'openid', 'email', 'profile', 'offline_access',
+				'https://management.azure.eaglex.ic.gov/user_impersonation'
+			],
+			portalEndpoint: 'https://portal.azure.eaglex.ic.gov/'
+		}
+	}
+};
+
+let allSettings = [publicAzureSettings, usGovAzureSettings, chinaAzureSettings, usNatAzureSettings, usSecAzureSettings];
 allSettings = updateCustomCloudProviderSettings(allSettings);
 export default allSettings;
