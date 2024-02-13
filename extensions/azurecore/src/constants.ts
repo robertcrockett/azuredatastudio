@@ -31,6 +31,10 @@ export const enableUsGovCloud = 'enableUsGovCloud';
 
 export const enableChinaCloud = 'enableChinaCloud';
 
+export const enableUsSecCloud = 'enableUsSecCloud';
+
+export const enableUsNatCloud = 'enableUsNatCloud';
+
 export const EnableArcFeaturesSection = 'enableArcFeatures';
 
 export const ServiceName = 'azuredatastudio';
