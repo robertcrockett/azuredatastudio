@@ -102,6 +102,11 @@ steps:
     echo -e "{  \"version\": \"$VERSION\", \"quality\": \"$VSCODE_QUALITY\", \"commit\": \"$commitHash\" }" > ".build/version.json"
 
     node build/azure-pipelines/common/copyArtifacts.js
+
+    ls $(Build.SourcesDirectory)
+    cd $(Build.SourcesDirectory)/azuredatastudio
+    git log -1 --pretty=format:"%H"
+
   displayName: Write Version Information
 
 - task: PublishBuildArtifacts@1
