@@ -51,10 +51,10 @@ steps:
   displayName: Extract node_modules archive
 
 - script: |
-      set -e
-      sudo apt-get update
-      sudo apt-get install -y build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3 libkrb5-dev fakeroot rpm
-      CHILD_CONCURRENCY=1 yarn --frozen-lockfile
+    set -e
+    sudo apt-get update
+    sudo apt-get install -y build-essential g++ libx11-dev libxkbfile-dev libsecret-1-dev python-is-python3 libkrb5-dev fakeroot rpm
+    CHILD_CONCURRENCY=1 yarn --frozen-lockfile
   displayName: Install dependencies
   condition: and(succeeded(), ne(variables['NODE_MODULES_RESTORED'], 'true'))
 
@@ -97,7 +97,9 @@ steps:
 
     VERSION=$(node -p "require(\"./package.json\").version")
 
-    echo -e "{  \"version\": \"$VERSION\", \"quality\": \"$VSCODE_QUALITY\", \"commit\": \"$BUILD_SOURCEVERSION\" }" > ".build/version.json"
+    $commitHash=(git ls-remote "https://github.com/microsoft/azuredatastudio.git" HEAD).Replace("`tHEAD", "")
+
+    echo -e "{  \"version\": \"$VERSION\", \"quality\": \"$VSCODE_QUALITY\", \"commit\": \"$commitHash\" }" > ".build/version.json"
 
     node build/azure-pipelines/common/copyArtifacts.js
   displayName: Write Version Information
